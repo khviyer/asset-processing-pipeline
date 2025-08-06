@@ -1,12 +1,4 @@
-/*
- * Author: Manus
- * Date: 2025-08-05
- * 
- * This file is part of test assignment for "CI/CD Engineer" role in Scorewarrior
- * 
- * Test-assignment Version: 1.0.0
- * Agent name and version: Gemini
- */
+
 
 import jetbrains.buildServer.configs.kotlin.*
 import jetbrains.buildServer.configs.kotlin.buildFeatures.vcs
@@ -26,7 +18,7 @@ project {
 
 object AssetPackagingVcsRoot : GitVcsRoot({
     name = "Asset Packaging VCS Root"
-    url = "https://github.com/[your-username]/asset-packaging-pipeline.git"
+    url = "https://github.com/khviyer/asset-processing-pipeline"
     branch = "refs/heads/main"
     branchSpec = "+:refs/heads/*"
     authMethod = password {
@@ -157,8 +149,8 @@ object DeliveryToGCS : BuildType({
     }
     
     params {
-        param("gcs.bucket.name", "your-asset-bucket")
-        param("gcs.project.id", "your-gcp-project")
+        param("gcs.bucket.name", "test-bucket")
+        param("gcs.project.id", "Asset-packaging-pipeline")
         password("gcs.credentials", "credentialsJSON:gcs-service-account")
     }
 })
