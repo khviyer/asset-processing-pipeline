@@ -35,20 +35,17 @@ The pipeline consists of three main builds:
 
 ### TeamCity Configuration
 
-1.  **Import Project**: Import the `teamcity/` directory into your TeamCity project as a Kotlin DSL configuration.
+1.  **Import Project**: Import the `teamcity/` directory into TeamCity project as a Kotlin DSL configuration.
 2.  **VCS Root**: Update the `AssetPackagingVcsRoot` in `teamcity/src/main/kotlin/AssetPackagingProject.kt` with your Git repository URL.
 3.  **GCS Parameters**: In the `DeliveryToGCS` build configuration, set the following parameters:
-    -   `gcs.bucket.name`: Your GCS bucket name (e.g., `your-asset-bucket`)
-    -   `gcs.project.id`: Your GCP project ID (e.g., `your-gcp-project`)
-    -   `gcs.credentials`: Your Google Cloud service account key (JSON format). This should be stored as a secure parameter in TeamCity.
+    -   `gcs.bucket.name`: test-bucket
+    -   `gcs.project.id`: asset-packaging-pipeline
+    -   `gcs.credentials`: Security Credentials.
 
 ### Running the Pipeline
 
 -   The pipeline will automatically start when a new commit appears in any branch.
 -   The GCS delivery step will only execute for commits on the `main` branch.
 
-## Author Header
-
-All relevant files include an author header as specified in the task requirements.
 
 
